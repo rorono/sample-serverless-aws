@@ -29,10 +29,26 @@ package:
     - README.md
 
 functions:
-  hello:
-    handler: handler.hello
+  root:
+    handler: handler.root
     memorySize: 128
     events:
       - http:
           path: /
           method: get
+
+  todosReadAll:
+    handler: handler.todosReadAll
+    memorySize: 128
+    events:
+      - http:
+          path: todos
+          method: get
+
+  todosReadOne:
+    handler: handler.todosReadOne
+    memorySize: 128
+    events:
+      - http:
+          path: todos
+          method: post
