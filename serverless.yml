@@ -16,7 +16,17 @@ service: sample-serverless-aws
 provider:
   name: aws
   runtime: nodejs6.10
-  region: ap-northeast-1
+  stage: ${opt:stage, self:custom.defaultStage}
+  region: ${opt:region, self:custom.defaultRegion}
+
+custom:
+  defaultStage: dev
+  defaultRegion: ap-northeast-1
+
+package:
+  exclude:
+    - .git/**
+    - README.md
 
 functions:
   hello:
